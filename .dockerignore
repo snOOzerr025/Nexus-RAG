@@ -1,0 +1,38 @@
+# VCS
+.git
+.gitignore
+.github
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+.env
+.pytest_cache
+.mypy_cache
+.ruff_cache
+
+# Development
+.vscode
+.idea
+.claude-flow
+tests/
+*.md
+docs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data & artifacts (keep these if needed at runtime)
+# Uncomment if your runtime doesn't need these:
+# data/
+# *.pdf
+# golden_test.pdf
+# quantum_test.pdf

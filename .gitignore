@@ -1,0 +1,62 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# === Virtual Environment ===
+.venv/
+venv/
+ENV/
+
+# === Environment Variables (NEVER commit secrets) ===
+.env
+.env.local
+.env.production
+
+# === Data Directory (generated at runtime) ===
+data/
+!data/.gitkeep
+
+# === ChromaDB ===
+chroma_db/
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === OS ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Node / Frontend ===
+node_modules/
+frontend/dist/
+frontend/build/
+.cache/
+
+# === Testing ===
+.coverage
+htmlcov/
+.pytest_cache/
+
+# === mypy ===
+.mypy_cache/
+
+# === Ruff ===
+.ruff_cache/
+
+# === Docker ===
+*.log
+
+# === Misc ===
+*.pkl
+*.pickle

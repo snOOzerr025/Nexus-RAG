@@ -1,0 +1,36 @@
+# === API Framework ===
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9
+
+# === AI / ML ===
+openai>=1.30.0
+langchain-text-splitters>=0.2.0
+rank-bm25>=0.2.2
+numpy>=1.26.0
+scikit-learn>=1.4.0
+
+# === Vector Store ===
+chromadb>=0.5.0
+
+# === Data Processing ===
+beautifulsoup4>=4.12.0
+pypdf>=4.0.0
+chardet>=5.2.0
+
+# === Configuration & Validation ===
+pydantic>=2.7.0
+pydantic-settings>=2.3.0
+python-dotenv>=1.0.0
+
+# === HTTP Client ===
+httpx>=0.27.0
+
+# === Logging & Monitoring ===
+structlog>=24.1.0
+rich>=13.7.0
+
+# === Utilities ===
+tiktoken>=0.7.0
+tenacity>=8.3.0
+orjson>=3.10.0

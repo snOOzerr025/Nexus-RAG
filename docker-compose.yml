@@ -1,0 +1,37 @@
+services:
+  # FastAPI RAG Backend Service
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rag_api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+      - CHROMA_PERSIST_DIR=/app/data/chroma_db
+      - BM25_INDEX_PATH=/app/data/indexes/bm25_index.pkl
+      - DOCUMENT_REGISTRY_PATH=/app/data/registry/documents.json
+      - RAW_DOCS_DIR=/app/data/raw
+      - PROCESSED_DOCS_DIR=/app/data/processed
+    volumes:
+      - ./data:/app/data
+      - ./sample_docs:/app/sample_docs
+    restart: unless-stopped
+
+  # React Dashboard Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=http://localhost:8000
+    container_name: rag_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+    restart: unless-stopped
