@@ -1,0 +1,115 @@
+{
+  "commit_sequence": [
+    // Phase 0: Project Foundations
+    {"files": [".gitignore", ".dockerignore"], "description": "Project foundation: gitignore configs"},
+    {"files": ["pyproject.toml", "requirements.txt", "requirements-dev.txt"], "description": "Python project dependencies"},
+    {"files": ["Dockerfile", "Dockerfile.frontend", "docker-compose.yml"], "description": "Containerized deployment configs"},
+
+    // Phase 1: Configuration & Environment
+    {"files": ["config.py", "utils/logging.py"], "description": "Core configuration and logging setup"},
+    {"files": ["utils/text_processing.py", "utils/tokenizer.py"], "description": "Text processing utilities"},
+    {"files": [".env.example"], "description": "Environment template for all settings"},
+
+    // Phase 2: Core Domain Models
+    {"files": ["models/domain.py", "models/enums.py"], "description": "Data models and enumerations"},
+    {"files": ["models/api.py", "models/__init__.py"], "description": "API schemas and package init"},
+
+    // Phase 3: Document Ingestion Pipeline
+    {"files": ["src/ingestion/loaders/base.py", "src/ingestion/loaders/text_loader.py"], "description": "Document loading foundation"},
+    {"files": ["src/ingestion/loaders/markdown_loader.py", "src/ingestion/loaders/html_loader.py"], "description": "Markdown and HTML parsing"},
+    {"files": ["src/ingestion/loaders/pdf_loader.py", "src/ingestion/loaders/factory.py"], "description": "PDF extraction and loader factory"},
+
+    {"files": ["src/ingestion/chunkers/fixed_chunker.py", "src/ingestion/chunkers/recursive_chunker.py"], "description": "Fixed and recursive chunking strategies"},
+    {"files": ["src/ingestion/chunkers/semantic_chunker.py", "src/ingestion/chunkers/factory.py"], "description": "Semantic chunking and strategy factory"},
+
+    {"files": ["ingestion/dedup.py"], "description": "Duplicate detection engine for ingestion"},
+
+    // Phase 4: Retrieval Engine
+    {"files": ["retrieval/base.py"], "description": "Retrieval engine base class and interfaces"},
+    {"files": ["retrieval/dense_retriever.py"], "description": "Dense vector retrieval via ChromaDB"},
+    {"files": ["retrieval/sparse_retriever.py"], "description": "Sparse BM25 keyword retrieval"},
+
+    {"files": ["retrieval/fusion.py"], "description": "Reciprocal Rank Fusion for dense+sparse merging"},
+    {"files": ["retrieval/reranker.py"], "description": "Cross-encoder reranker for precision improvement"},
+
+    // Phase 5: Generation & Citation Layer
+    {"files": ["generation/prompt_builder.py"], "description": "Prompt construction with numbered context"},
+    {"files": ["generation/generator.py"], "description": "LLM answer generation with grounding enforcement"},
+    {"files": ["generation/citation_verifier.py"], "description": "LLM-as-judge citation verification"},
+    {"files": ["generation/confidence_scorer.py"], "description": "Composite confidence scoring system"},
+
+    // Phase 6: Service Layer
+    {"files": ["services/query_service.py"], "description": "Query orchestration and flow management"},
+    {"files": ["services/ingestion_service.py"], "description": "Ingestion pipeline orchestration"},
+    {"files": ["services/generation_service.py"], "description": "Generation pipeline orchestration"},
+    {"files": ["services/retrieval_service.py"], "description": "Retrieval pipeline orchestration"},
+    {"files": ["services/eval_service.py"], "description": "Evaluation framework orchestration"},
+
+    // Phase 7: API Layer
+    {"files": ["api/deps.py"], "description": "Dependency injection utilities"},
+    {"files": ["api/middleware/security.py"], "description": "Security headers middleware"},
+    {"files": ["api/middleware/rate_limit.py"], "description": "Rate limiting middleware"},
+    {"files": ["api/middleware/logging.py"], "description": "Structured request logging middleware"},
+
+    {"files": ["api/routes/ask.py"], "description": "POST /v1/ask endpoint implementation"},
+    {"files": ["api/routes/ingest.py"], "description": "POST /v1/ingest endpoint implementation"},
+    {"files": ["api/routes/documents.py"], "description": "GET /v1/documents endpoint implementation"},
+    {"files": ["api/routes/health.py"], "description": "GET /health endpoint implementation"},
+
+    // Phase 8: App Entry Point & Configuration
+    {"files": ["src/__init__.py"], "description": "Package initialization"},
+    {"files": ["main.py"], "description": "FastAPI application entrypoint"},
+
+    // Phase 9: Tests
+    {"files": ["tests/conftest.py"], "description": "Test configuration and fixtures"},
+    {"files": ["tests/unit/test_chunkers.py"], "description": "Chunker unit tests"},
+    {"files": ["tests/unit/test_retrieval.py"], "description": "Retrieval unit tests"},
+    {"files": ["tests/unit/test_fusion.py"], "description": "RRF fusion unit tests"},
+    {"files": ["tests/unit/test_citation_verifier.py"], "description": "Citation verification unit tests"},
+    {"files": ["tests/unit/test_confidence_scorer.py"], "description": "Confidence scorer unit tests"},
+
+    // Phase 10: Frontend Core
+    {"files": ["frontend/package.json"], "description": "React project setup and dependencies"},
+    {"files": ["frontend/vite.config.js"], "description": "Vite build configuration"},
+    {"files": ["frontend/index.html"], "description": "HTML template for React app"},
+
+    {"files": ["frontend/src/main.jsx"], "description": "React application entry point"},
+    {"files": ["frontend/src/App.jsx"], "description": "Root React component"},
+
+    {"files": ["frontend/src/index.css"], "description": "Global CSS and design system"},
+
+    // Phase 11: Frontend Components
+    {"files": ["frontend/src/components/Header.jsx", "frontend/src/components/Sidebar.jsx"], "description": "Navigation components (2 files)"},
+    {"files": ["frontend/src/components/QueryInput.jsx", "frontend/src/components/SkeletonLoader.jsx"], "description": "Input and loading components (2 files)"},
+    {"files": ["frontend/src/components/AnswerDisplay.jsx", "frontend/src/components/CitationCard.jsx"], "description": "Answer display components (2 files)"},
+    {"files": ["frontend/src/components/ChunkInspector.jsx", "frontend/src/components/ConfidenceGauge.jsx"], "description": "Inspection and gauge components (2 files)"},
+    {"files": ["frontend/src/components/DocumentUpload.jsx", "frontend/src/components/DocumentList.jsx"], "description": "Document management components (2 files)"},
+    {"files": ["frontend/src/components/ComparisonView.jsx"], "description": "Retrieval comparison view component"},
+
+    // Phase 12: Frontend Pages & Hooks
+    {"files": ["frontend/src/pages/QueryPage.jsx", "frontend/src/hooks/useQuery.js"], "description": "Query page and its hook (2 files)"},
+    {"files": ["frontend/src/pages/DocumentsPage.jsx", "frontend/src/hooks/useDocuments.js"], "description": "Documents page and its hook (2 files)"},
+    {"files": ["frontend/src/pages/EvalPage.jsx", "frontend/src/api/client.js"], "description": "Eval page and API client (2 files)"},
+
+    // Phase 13: Scripts & Data
+    {"files": ["scripts/seed_data.py"], "description": "Sample corpus seeding script"},
+    {"files": ["scripts/run_eval.py"], "description": "Evaluation runner script"},
+    {"files": ["scripts/compare_strategies.py"], "description": "Chunking strategy comparison script"},
+
+    // Phase 14: Deployment & Documentation
+    {"files": ["docs/prd.md", "docs/architecture.md", "docs/implementation.md"], "description": "Core PRD and architecture docs (3 files)"},
+    {"files": ["docs/phases.md", "docs/appflow.md", "docs/backend_schema.md"], "description": "Phases and configuration docs (3 files)"},
+    {"files": ["docs/design.md", "docs/rules.md", "docs/trd.md"], "description": "Design and rules docs (3 files)"},
+    {"files": ["README.md"], "description": "Project overview and quick start"},
+
+    // Phase 15: Sample Docs & Final Polish
+    {"files": ["sample_docs/getting-started.md", "sample_docs/api-reference.md"], "description": "Sample documentation (2 files)"},
+    {"files": ["sample_docs/architecture-overview.md", "sample_docs/deployment-guide.md"], "description": "Sample architecture docs (2 files)"},
+    {"files": ["sample_docs/troubleshooting.html", "sample_docs/user-manual.pdf"], "description": "Sample docs in different formats (2 files)"}
+  ],
+
+  "total_commits": 69,
+  "commit_groups": "1-3 files per commit, professionally themed",
+  "push_interval_minutes": 5,
+  "commit_interval_minutes": 1
+}
